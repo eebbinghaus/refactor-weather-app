@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import Aside from "./components/aside";
+import Aside from "./components/Aside";
 import Current from "./components/Current";
 
 function App() {
@@ -9,7 +9,6 @@ function App() {
 
     return (
         <div className="flex ">
-            
             <Aside />
             <Current />
         </div>
