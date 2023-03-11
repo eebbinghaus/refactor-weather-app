@@ -1,6 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocalStorageContext } from "../utils/localStorageContext";
 
 const Aside = ({ input, handleChange, fetchCoordinates }) => {
+    const { cities, setCities } = useLocalStorageContext;
+
+    // useEffect(() => {
+    //     setCities(
+    //         localStorage.getItem("cities")
+    //             ? JSON.parse(localStorage.getItem("cities"))
+    //             : []
+    //     );
+    // }, []);
+
     return (
         <div className="w-1/2 pr-10">
             <form className="w-full z-[5] bg-[#42666E] p-10 shadow-[0_20px_80px_20px_#42666E] rounded-xl border-[#cbf83e] border-solid border-2">

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import Aside from "./Aside";
 import Current from "./Current";
 import { useApiContext } from "../utils/apiContext";
+import { useLocalStorageContext } from "../utils/localStorageContext";
 
 const API = () => {
-    
-
     // const [input, setInput] = useState("");
     // const [lat, setLat] = useState("");
     // const [lon, setLon] = useState("");
@@ -29,6 +28,8 @@ const API = () => {
         setHumidity,
         setEmoji,
     } = useApiContext();
+
+    const { cities, setCities } = useLocalStorageContext;
 
     function fetchCoordinates() {
         let apiCall =
@@ -59,6 +60,9 @@ const API = () => {
     const handleChange = (e) => {
         e.preventDefault();
         setInput(e.target.value);
+        console.log(cities);
+        setCities([...cities, input]);
+        localStorage.setItem("cities", JSON.stringify("cities"));
         console.log(e.target.value);
     };
 
